@@ -2,11 +2,6 @@ import sys
 import os
 import csv
 from enum import Enum
-
-# Add the parent directory of "src" to Python's path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
-
 from bs4 import BeautifulSoup
 from src.crawls.api_crawler import APICrawler
 from src.crawls.beautiful_soup_crawler import BeautifulSoupCrawler
@@ -15,7 +10,7 @@ from src.service.file_service import read_urls_from_file, save_urls_to_file
 from src.service.google_service import fetch_google_search_results
 from src.service.proxy_service import ProxyService
 
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 def html_to_string(html):
     soup = BeautifulSoup(html, 'html.parser')
     return soup.text
